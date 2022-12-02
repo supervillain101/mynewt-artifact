@@ -1,4 +1,4 @@
-module github.com/apache/mynewt-artifact
+module github.com/supervillain101/mynewt-artifact
 
 go 1.12
 

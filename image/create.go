@@ -20,6 +20,7 @@
 package image
 
 import (
+    "fmt"
 	"bytes"
 	"crypto"
 	"crypto/ecdsa"
@@ -419,6 +420,8 @@ func GenerateImage(opts ImageCreateOpts) (Image, error) {
 func calcHash(initialHash []byte, hdr ImageHdr, pad []byte,
 	plainBody []byte, protTlvs []ImageTlv) ([]byte, error) {
 
+    fmt.Printf("PHIL 2\n")
+
 	hash := sha256.New()
 
 	add := func(itf interface{}) error {
@@ -555,6 +558,7 @@ func (ic *ImageCreator) Create() (Image, error) {
 	if ic.PlainSecret != nil {
 		// For encrypted images, must calculate the hash with the plain
 		// body and encrypt the payload afterwards
+        fmt.Printf("PHILS MOD 1\n")
 		img.Body = append(img.Body, ic.Body...)
 		hashBytes, err = img.CalcHash(ic.InitialHash)
 		if err != nil {
